@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Calculateur de Notes GEA",
+  "version": "1.0",
+  "description": "Calcule la moyenne pondérée directement sur le bulletin de l'ENT.",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
