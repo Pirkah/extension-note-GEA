@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F9666278303D8E3A00DF87CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9666277303D8E3A00DF87CD /* AppDelegate.swift */; };
+		F966627C303D8E3A00DF87CD /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = F966627A303D8E3A00DF87CD /* Main.html */; };
+		F966627E303D8E3A00DF87CD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F966627D303D8E3A00DF87CD /* Icon.png */; };
+		F9666280303D8E3A00DF87CD /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = F966627F303D8E3A00DF87CD /* Style.css */; };
+		F9666282303D8E3A00DF87CD /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = F9666281303D8E3A00DF87CD /* Script.js */; };
+		F9666284303D8E3A00DF87CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9666283303D8E3A00DF87CD /* ViewController.swift */; };
+		F9666287303D8E3A00DF87CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9666285303D8E3A00DF87CD /* Main.storyboard */; };
+		F9666289303D8E3A00DF87CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9666288303D8E3A00DF87CD /* Assets.xcassets */; };
+		F9666290303D8E3A00DF87CD /* Calculateur de Notes GEA Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F966628F303D8E3A00DF87CD /* Calculateur de Notes GEA Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F9666295303D8E3A00DF87CD /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9666294303D8E3A00DF87CD /* SafariWebExtensionHandler.swift */; };
+		F96662A5303D8E3B00DF87CD /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = F96662A1303D8E3B00DF87CD /* popup.html */; };
+		F96662A6303D8E3B00DF87CD /* Calculateur de Notes GEA in Resources */ = {isa = PBXBuildFile; fileRef = F96662A2303D8E3B00DF87CD /* Calculateur de Notes GEA */; };
+		F96662A7303D8E3B00DF87CD /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = F96662A3303D8E3B00DF87CD /* manifest.json */; };
+		F96662A8303D8E3B00DF87CD /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = F96662A4303D8E3B00DF87CD /* content.js */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F9666291303D8E3A00DF87CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F966626C303D8E3900DF87CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F966628E303D8E3A00DF87CD;
+			remoteInfo = "Calculateur de Notes GEA Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F966629C303D8E3B00DF87CD /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F9666290303D8E3A00DF87CD /* Calculateur de Notes GEA Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F9666274303D8E3A00DF87CD /* Calculateur de Notes GEA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calculateur de Notes GEA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9666277303D8E3A00DF87CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F966627B303D8E3A00DF87CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		F966627D303D8E3A00DF87CD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		F966627F303D8E3A00DF87CD /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		F9666281303D8E3A00DF87CD /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		F9666283303D8E3A00DF87CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F9666286303D8E3A00DF87CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F9666288303D8E3A00DF87CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F966628A303D8E3A00DF87CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F966628F303D8E3A00DF87CD /* Calculateur de Notes GEA Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Calculateur de Notes GEA Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9666294303D8E3A00DF87CD /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		F9666296303D8E3A00DF87CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F96662A1303D8E3B00DF87CD /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = ../../popup.html; sourceTree = "<group>"; };
+		F96662A2303D8E3B00DF87CD /* Calculateur de Notes GEA */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Calculateur de Notes GEA"; sourceTree = SOURCE_ROOT; };
+		F96662A3303D8E3B00DF87CD /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../manifest.json; sourceTree = "<group>"; };
+		F96662A4303D8E3B00DF87CD /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = content.js; path = ../../content.js; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F9666271303D8E3900DF87CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F966628C303D8E3A00DF87CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F966626B303D8E3900DF87CD = {
+			isa = PBXGroup;
+			children = (
+				F9666276303D8E3A00DF87CD /* Calculateur de Notes GEA */,
+				F9666293303D8E3A00DF87CD /* Calculateur de Notes GEA Extension */,
+				F9666275303D8E3A00DF87CD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F9666275303D8E3A00DF87CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9666274303D8E3A00DF87CD /* Calculateur de Notes GEA.app */,
+				F966628F303D8E3A00DF87CD /* Calculateur de Notes GEA Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F9666276303D8E3A00DF87CD /* Calculateur de Notes GEA */ = {
+			isa = PBXGroup;
+			children = (
+				F9666277303D8E3A00DF87CD /* AppDelegate.swift */,
+				F9666283303D8E3A00DF87CD /* ViewController.swift */,
+				F9666285303D8E3A00DF87CD /* Main.storyboard */,
+				F9666288303D8E3A00DF87CD /* Assets.xcassets */,
+				F966628A303D8E3A00DF87CD /* Info.plist */,
+				F9666279303D8E3A00DF87CD /* Resources */,
+			);
+			path = "Calculateur de Notes GEA";
+			sourceTree = "<group>";
+		};
+		F9666279303D8E3A00DF87CD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F966627A303D8E3A00DF87CD /* Main.html */,
+				F966627D303D8E3A00DF87CD /* Icon.png */,
+				F966627F303D8E3A00DF87CD /* Style.css */,
+				F9666281303D8E3A00DF87CD /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F9666293303D8E3A00DF87CD /* Calculateur de Notes GEA Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F96662A0303D8E3B00DF87CD /* Resources */,
+				F9666294303D8E3A00DF87CD /* SafariWebExtensionHandler.swift */,
+				F9666296303D8E3A00DF87CD /* Info.plist */,
+			);
+			path = "Calculateur de Notes GEA Extension";
+			sourceTree = "<group>";
+		};
+		F96662A0303D8E3B00DF87CD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F96662A1303D8E3B00DF87CD /* popup.html */,
+				F96662A2303D8E3B00DF87CD /* Calculateur de Notes GEA */,
+				F96662A3303D8E3B00DF87CD /* manifest.json */,
+				F96662A4303D8E3B00DF87CD /* content.js */,
+			);
+			name = Resources;
+			path = "Calculateur de Notes GEA Extension";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F9666273303D8E3900DF87CD /* Calculateur de Notes GEA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F966629D303D8E3B00DF87CD /* Build configuration list for PBXNativeTarget "Calculateur de Notes GEA" */;
+			buildPhases = (
+				F9666270303D8E3900DF87CD /* Sources */,
+				F9666271303D8E3900DF87CD /* Frameworks */,
+				F9666272303D8E3900DF87CD /* Resources */,
+				F966629C303D8E3B00DF87CD /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9666292303D8E3A00DF87CD /* PBXTargetDependency */,
+			);
+			name = "Calculateur de Notes GEA";
+			packageProductDependencies = (
+			);
+			productName = "Calculateur de Notes GEA";
+			productReference = F9666274303D8E3A00DF87CD /* Calculateur de Notes GEA.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F966628E303D8E3A00DF87CD /* Calculateur de Notes GEA Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9666299303D8E3B00DF87CD /* Build configuration list for PBXNativeTarget "Calculateur de Notes GEA Extension" */;
+			buildPhases = (
+				F966628B303D8E3A00DF87CD /* Sources */,
+				F966628C303D8E3A00DF87CD /* Frameworks */,
+				F966628D303D8E3A00DF87CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Calculateur de Notes GEA Extension";
+			packageProductDependencies = (
+			);
+			productName = "Calculateur de Notes GEA Extension";
+			productReference = F966628F303D8E3A00DF87CD /* Calculateur de Notes GEA Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F966626C303D8E3900DF87CD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2660;
+				LastUpgradeCheck = 2660;
+				TargetAttributes = {
+					F9666273303D8E3900DF87CD = {
+						CreatedOnToolsVersion = 26.6;
+					};
+					F966628E303D8E3A00DF87CD = {
+						CreatedOnToolsVersion = 26.6;
+					};
+				};
+			};
+			buildConfigurationList = F966626F303D8E3900DF87CD /* Build configuration list for PBXProject "Calculateur de Notes GEA" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F966626B303D8E3900DF87CD;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F9666275303D8E3A00DF87CD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F9666273303D8E3900DF87CD /* Calculateur de Notes GEA */,
+				F966628E303D8E3A00DF87CD /* Calculateur de Notes GEA Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F9666272303D8E3900DF87CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F966627E303D8E3A00DF87CD /* Icon.png in Resources */,
+				F9666287303D8E3A00DF87CD /* Main.storyboard in Resources */,
+				F9666282303D8E3A00DF87CD /* Script.js in Resources */,
+				F966627C303D8E3A00DF87CD /* Main.html in Resources */,
+				F9666289303D8E3A00DF87CD /* Assets.xcassets in Resources */,
+				F9666280303D8E3A00DF87CD /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F966628D303D8E3A00DF87CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F96662A8303D8E3B00DF87CD /* content.js in Resources */,
+				F96662A6303D8E3B00DF87CD /* Calculateur de Notes GEA in Resources */,
+				F96662A7303D8E3B00DF87CD /* manifest.json in Resources */,
+				F96662A5303D8E3B00DF87CD /* popup.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F9666270303D8E3900DF87CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9666284303D8E3A00DF87CD /* ViewController.swift in Sources */,
+				F9666278303D8E3A00DF87CD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F966628B303D8E3A00DF87CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9666295303D8E3A00DF87CD /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F9666292303D8E3A00DF87CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F966628E303D8E3A00DF87CD /* Calculateur de Notes GEA Extension */;
+			targetProxy = F9666291303D8E3A00DF87CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F966627A303D8E3A00DF87CD /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F966627B303D8E3A00DF87CD /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		F9666285303D8E3A00DF87CD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9666286303D8E3A00DF87CD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F9666297303D8E3B00DF87CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F9666298303D8E3B00DF87CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		F966629A303D8E3B00DF87CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HQM763FKNK;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Calculateur de Notes GEA Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Calculateur de Notes GEA Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.Calculateur-de-Notes-GEA.Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F966629B303D8E3B00DF87CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HQM763FKNK;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Calculateur de Notes GEA Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Calculateur de Notes GEA Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.Calculateur-de-Notes-GEA.Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F966629E303D8E3B00DF87CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HQM763FKNK;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Calculateur de Notes GEA/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Calculateur de Notes GEA";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.Calculateur-de-Notes-GEA";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F966629F303D8E3B00DF87CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HQM763FKNK;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Calculateur de Notes GEA/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Calculateur de Notes GEA";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.Calculateur-de-Notes-GEA";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F966626F303D8E3900DF87CD /* Build configuration list for PBXProject "Calculateur de Notes GEA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9666297303D8E3B00DF87CD /* Debug */,
+				F9666298303D8E3B00DF87CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9666299303D8E3B00DF87CD /* Build configuration list for PBXNativeTarget "Calculateur de Notes GEA Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F966629A303D8E3B00DF87CD /* Debug */,
+				F966629B303D8E3B00DF87CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F966629D303D8E3B00DF87CD /* Build configuration list for PBXNativeTarget "Calculateur de Notes GEA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F966629E303D8E3B00DF87CD /* Debug */,
+				F966629F303D8E3B00DF87CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F966626C303D8E3900DF87CD /* Project object */;
+}

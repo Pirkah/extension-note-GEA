@@ -1,4 +1,4 @@
-// 1. Création de l'overlay complet (configuré en mode REDUIT par défaut au lancement)
+// 1. Création de l'overlay complet (configuré en mode RÉDUIT par défaut au lancement)
 const overlay = document.createElement('div');
 overlay.id = 'ext-gea-overlay';
 overlay.style.position = 'fixed';
@@ -13,7 +13,7 @@ overlay.style.border = '1px solid #334155';
 overlay.style.transition = 'all 0.2s ease-in-out';
 overlay.style.overflow = 'hidden';
 
-// Style initial du petit badge rond iGraal
+// Style initial du badge rond
 overlay.style.width = '45px';
 overlay.style.height = '45px';
 overlay.style.padding = '0';
@@ -48,7 +48,7 @@ document.body.appendChild(overlay);
 let currentView = 'annee'; 
 let isMinimized = true;
 
-// ---- DRAG & DROP RÉACTIF ET COMPATIBLE CLIC ----
+// ---- DRAG & DROP ----
 let isDragging = false;
 let initialX, initialY;
 let startX = 0, startY = 0;
@@ -57,7 +57,7 @@ overlay.addEventListener('mousedown', (e) => {
     if (e.target.closest('a') || e.target.closest('button')) return;
     
     isDragging = true;
-    overlay.style.transition = 'none'; // CORRIGÉ : Plus de double .style !
+    overlay.style.transition = 'none';
     
     initialX = e.clientX - overlay.offsetLeft;
     initialY = e.clientY - overlay.offsetTop;
@@ -75,7 +75,7 @@ document.addEventListener('mousemove', (e) => {
     }
 });
 
-document.addEventListener('mouseup', (e) => {
+document.addEventListener('mouseup', () => {
     if (isDragging) {
         isDragging = false;
         overlay.style.transition = 'all 0.2s ease-in-out';
@@ -87,7 +87,6 @@ const minBtn = document.getElementById('ext-minimize');
 const extContent = document.getElementById('ext-content');
 const extTabsBar = document.getElementById('ext-tabs');
 const titleText = document.getElementById('ext-title-text');
-const twitterLink = document.getElementById('ext-twitter-link');
 const actionsBloc = document.getElementById('ext-actions-bloc');
 const headerElement = document.getElementById('ext-header');
 
@@ -148,21 +147,17 @@ function basculerModeReduit() {
     }
 }
 
-// Réduire au clic sur le bouton moins
 minBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     basculerModeReduit();
 });
 
-// Ouvrir au clic si ce n'est pas un drag
 overlay.addEventListener('click', (e) => {
     if (e.target.closest('a') || e.target.closest('button')) return;
     
-    // On calcule l'écart de pixel réel entre le clic et le relâchement
     const deltaX = Math.abs(e.clientX - startX);
     const deltaY = Math.abs(e.clientY - startY);
     
-    // Si l'overlay est fermé ET que la souris a bougé de moins de 6 pixels, c'est un vrai clic d'ouverture
     if (isMinimized && deltaX < 6 && deltaY < 6) {
         basculerModeReduit();
     }
@@ -406,13 +401,42 @@ function initialiserBoutonsOnglets() {
 
     function resetStyles() {
         [btnAnnee, btnS1, btnS2].forEach(btn => {
-            btn.style.background = '#1e293b'; btn.style.color = '#94a3b8'; btn.style.border = '1px solid #334155';
+            btn.style.background = '#1e293b'; 
+            btn.style.color = '#94a3b8'; 
+            btn.style.border = '1px solid #334155';
         });
     }
 
-    btnAnnee.addEventListener('click', (e) => { e.stopPropagation(); currentView = 'annee'; resetStyles(); btnAnnee.style.background = '#38bdf8'; btnAnnee.style.color = '#0f172a'; genererVueOverlay(); });
-    btnS1.addEventListener('click', (e) => { e.stopPropagation(); currentView = 's1'; resetStyles(); btnS1.style.background = '#38bdf8'; btnS1.style.color = '#0f172a'; genererVueOverlay(); });
-    btnS2.addEventListener('click', (e) => { e.stopPropagation(); currentView = 's2'; resetStyles(); btnS2.style.background = '#38bdf8'; btnS2.style.color = '#0f172a'; genererVueOverlay(); });
+    if (btnAnnee) {
+        btnAnnee.addEventListener('click', (e) => { 
+            e.stopPropagation(); 
+            currentView = 'annee'; 
+            resetStyles(); 
+            btnAnnee.style.background = '#38bdf8'; 
+            btnAnnee.style.color = '#0f172a'; 
+            genererVueOverlay(); 
+        });
+    }
+    if (btnS1) {
+        btnS1.addEventListener('click', (e) => { 
+            e.stopPropagation(); 
+            currentView = 's1'; 
+            resetStyles(); 
+            btnS1.style.background = '#38bdf8'; 
+            btnS1.style.color = '#0f172a'; 
+            genererVueOverlay(); 
+        });
+    }
+    if (btnS2) {
+        btnS2.addEventListener('click', (e) => { 
+            e.stopPropagation(); 
+            currentView = 's2'; 
+            resetStyles(); 
+            btnS2.style.background = '#38bdf8'; 
+            btnS2.style.color = '#0f172a'; 
+            genererVueOverlay(); 
+        });
+    }
 }
 
 document.addEventListener('click', (e) => {

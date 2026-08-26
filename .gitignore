@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcuserstate
+project.xcworkspace/
+!*.xcodeproj/project.xcworkspace
+DerivedData/
+build/
+*.build/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Temporary files
+*.tmp
+*.log
