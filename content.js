@@ -84,6 +84,34 @@
             color: #fff;
             border-color: #ef4444;
         }
+        .gea-social-links {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: 6px;
+            padding-left: 10px;
+            border-left: 1px solid #334155;
+        }
+        .gea-social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.15s ease;
+        }
+        .gea-social-link:hover {
+            background: #334155;
+            color: #38bdf8;
+            border-color: #38bdf8;
+            transform: translateY(-1px);
+        }
         .gea-ue-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -1065,6 +1093,11 @@
                     <button type="button" class="gea-btn" data-action="fill-10">✨ Simuler 10/20 partout (vide)</button>
                     <button type="button" class="gea-btn" data-action="fill-12">✨ Simuler 12/20 partout (vide)</button>
                     ${totalSims > 0 ? `<button type="button" class="gea-btn gea-btn-danger" data-action="reset">🗑️ Réinitialiser (${totalSims} sim.)</button>` : ''}
+                    <div class="gea-social-links">
+                        <a href="https://twitter.com/pirkaah" target="_blank" rel="noopener noreferrer" class="gea-social-link" title="Mon Twitter / X (@pirkaah)" style="font-weight:700;">𝕏</a>
+                        <a href="https://github.com/Pirkah" target="_blank" rel="noopener noreferrer" class="gea-social-link" title="Mon GitHub (Pirkah)"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/juliennicolle/" target="_blank" rel="noopener noreferrer" class="gea-social-link" title="Mon LinkedIn (Julien Nicolle)"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="gea-ue-grid">
