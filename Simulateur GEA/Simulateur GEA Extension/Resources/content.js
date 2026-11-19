@@ -262,6 +262,13 @@
             color: #0284c7;
             margin-top: 2px;
         }
+        .gea-abs-malus-hint {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #ef4444;
+            margin-top: 2px;
+        }
     `;
     document.head.appendChild(styleEl);
 
@@ -364,6 +371,7 @@
                 else if (row.classList.contains('level-2') && currentUE) {
                     const tdCode = row.querySelector('.code');
                     const tdNom = row.querySelector('td:nth-child(2)');
+                    const tdAbs = row.querySelector('.abs');
                     const tdMoy = row.querySelector('.moyenne');
                     const tdCoef = row.querySelector('.coefficient');
 
@@ -371,6 +379,16 @@
                     const nom = tdNom ? tdNom.innerText.trim().split('\n')[0].trim() : '';
                     const officialMoy = tdMoy ? parseFloat(tdMoy.innerText.replace(',', '.')) : NaN;
                     const coef = tdCoef ? parseFloat(tdCoef.innerText.replace(',', '.')) : NaN;
+
+                    // Détection des absences injustifiées (bouton rouge .btn-danger dans .abs) -> -1 pt par absence sur la moyenne de la matière
+                    let malusAbsences = 0;
+                    if (tdAbs) {
+                        const redBtns = tdAbs.querySelectorAll('.btn-danger');
+                        redBtns.forEach(btn => {
+                            const n = parseFloat(btn.innerText.replace(',', '.').trim());
+                            if (!isNaN(n) && n > 0) malusAbsences += n;
+                        });
+                    }
 
                     if (isNaN(coef)) {
                         currentModOccurrence = null;
@@ -385,12 +403,18 @@
                             rawCode: rawCode || moduleKey,
                             nom,
                             officialMoy: !isNaN(officialMoy) ? officialMoy : NaN,
+                            malusAbsences: malusAbsences,
                             occurrences: [],
                             evals: [],
                             isSae: moduleKey.startsWith('SAE')
                         };
-                    } else if (!isNaN(officialMoy) && isNaN(modulesMap[moduleKey].officialMoy)) {
-                        modulesMap[moduleKey].officialMoy = officialMoy;
+                    } else {
+                        if (!isNaN(officialMoy) && isNaN(modulesMap[moduleKey].officialMoy)) {
+                            modulesMap[moduleKey].officialMoy = officialMoy;
+                        }
+                        if (malusAbsences > modulesMap[moduleKey].malusAbsences) {
+                            modulesMap[moduleKey].malusAbsences = malusAbsences;
+                        }
                     }
 
                     const occ = {
@@ -587,8 +611,19 @@
                     wrap.appendChild(clearBtn);
                     occ.tdMoy.appendChild(wrap);
 
+                    // Afficher un indicateur si la matière a un malus d'absence injustifiée (bouton rouge)
+                    const absHint = document.createElement('span');
+                    absHint.className = 'gea-abs-malus-hint gea-sim-injected';
+                    if (mod.malusAbsences > 0) {
+                        absHint.textContent = `🚨 -${mod.malusAbsences} pt${mod.malusAbsences > 1 ? 's' : ''} (abs. injustifiée)`;
+                    } else {
+                        absHint.style.display = 'none';
+                    }
+                    occ.tdMoy.appendChild(absHint);
+
                     occ._inputEl = input;
                     occ._clearBtnEl = clearBtn;
+                    occ._absHintEl = absHint;
                 });
             });
 
@@ -695,18 +730,25 @@
             }
         });
 
+        const malus = mod.malusAbsences || 0;
+
         // Priorité 1 : Override direct sur la ligne level-2 du module
         if (overrideL2 !== undefined && !isNaN(overrideL2)) {
             return {
-                moy: overrideL2,
+                moy: Math.max(0, overrideL2 - malus),
+                moyBrute: overrideL2,
+                malusApplique: malus,
                 source: 'simulated'
             };
         }
 
         // Priorité 2 : Si au moins un devoir level-3 est simulé, ou si des notes level-3 existent
         if (coefEvalTotal > 0 && (hasSimulatedEval || isNaN(mod.officialMoy))) {
+            const moyBrute = ptsEval / coefEvalTotal;
             return {
-                moy: ptsEval / coefEvalTotal,
+                moy: Math.max(0, moyBrute - malus),
+                moyBrute: moyBrute,
+                malusApplique: malus,
                 source: hasSimulatedEval ? 'computed' : 'official'
             };
         }
@@ -714,13 +756,17 @@
         // Priorité 3 : Moyenne officielle déjà inscrite sur la ligne level-2
         if (!isNaN(mod.officialMoy)) {
             return {
-                moy: mod.officialMoy,
+                moy: Math.max(0, mod.officialMoy - malus),
+                moyBrute: mod.officialMoy,
+                malusApplique: malus,
                 source: 'official'
             };
         }
 
         return {
             moy: NaN,
+            moyBrute: NaN,
+            malusApplique: malus,
             source: 'none'
         };
     }
@@ -804,6 +850,14 @@
                     } else {
                         occ._clearBtnEl.style.display = 'none';
                     }
+                    if (occ._absHintEl && mod.malusAbsences > 0) {
+                        occ._absHintEl.style.display = 'block';
+                        if (!isNaN(info.moy)) {
+                            occ._absHintEl.textContent = `🚨 Brute ${info.moyBrute.toFixed(2)} − ${mod.malusAbsences} pt abs. = ${info.moy.toFixed(2)}`;
+                        } else {
+                            occ._absHintEl.textContent = `🚨 −${mod.malusAbsences} pt${mod.malusAbsences > 1 ? 's' : ''} (abs. injustifiée)`;
+                        }
+                    }
                 });
             });
 
@@ -815,12 +869,19 @@
                 let coefTotal = 0;
                 let coefAcquis = 0;
                 let coefManquant = 0;
+                let malusPtsEnAttente = 0;
+                let totalMalusPtsUE = 0;
                 let hasSimInUE = false;
 
                 ue.items.forEach(item => {
                     const info = resModules[item.moduleKey];
+                    const mod = sem.modulesMap[item.moduleKey];
+                    const malusMod = (mod && mod.malusAbsences) ? mod.malusAbsences : 0;
+                    totalMalusPtsUE += malusMod * item.coef;
+
                     coefTotal += item.coef;
                     if (info && !isNaN(info.moy)) {
+                        // info.moy inclut déjà la déduction du malus (-1 pt par absence injustifiée)
                         ptsAcquis += info.moy * item.coef;
                         coefAcquis += item.coef;
                         if (info.source === 'simulated' || info.source === 'computed') {
@@ -828,6 +889,8 @@
                         }
                     } else {
                         coefManquant += item.coef;
+                        // Si la matière avec absence n'est pas encore notée, il faudra compenser ces points perdus sur les contrôles à venir
+                        malusPtsEnAttente += malusMod * item.coef;
                     }
                 });
 
@@ -835,8 +898,9 @@
                 const ptsCible10 = 10 * coefTotal;
                 const ptsCible8 = 8 * coefTotal;
 
-                const reqPour10 = coefManquant > 0 ? ((ptsCible10 - ptsAcquis) / coefManquant) : NaN;
-                const reqPour8 = coefManquant > 0 ? ((ptsCible8 - ptsAcquis) / coefManquant) : NaN;
+                // On ajoute malusPtsEnAttente aux points requis sur les matières restantes pour compenser le -1 de la matière en attente
+                const reqPour10 = coefManquant > 0 ? ((ptsCible10 - ptsAcquis + malusPtsEnAttente) / coefManquant) : NaN;
+                const reqPour8 = coefManquant > 0 ? ((ptsCible8 - ptsAcquis + malusPtsEnAttente) / coefManquant) : NaN;
 
                 // Sauvegarder pour l'onglet BILAN (UE 1..5)
                 const matchUeIdx = ue.code.match(/\.(\d+)/);
@@ -878,6 +942,8 @@
                     coefTotal,
                     coefAcquis,
                     coefManquant,
+                    malusPtsEnAttente,
+                    totalMalusPtsUE,
                     moyProvisoire,
                     reqPour10,
                     reqPour8,
@@ -939,8 +1005,12 @@
                     </div>
                 `;
             } else {
+                const malusBanner = st.totalMalusPtsUE > 0
+                    ? `<div style="font-size:0.68rem; color:#f87171; font-weight:700; margin-bottom:2px;">🚨 Malus absence inclus (−${st.totalMalusPtsUE} pts sur l'UE)</div>`
+                    : '';
                 targetsHtml = `
                     <div class="gea-targets-box">
+                        ${malusBanner}
                         <div style="font-size:0.7rem; color:#cbd5e1; font-weight:600; margin-bottom:2px; border-bottom:1px solid #334155; padding-bottom:3px;">
                             Moyenne requise sur les <strong>${st.coefManquant} coefs</strong> restants :
                         </div>
