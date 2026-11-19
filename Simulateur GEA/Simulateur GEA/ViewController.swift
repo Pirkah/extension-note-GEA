@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  Calculateur de Notes GEA
+//  Simulateur GEA
 //
-//  Created by Julien  on 25/08/2026.
+//  Created by Julien  on 19/11/2026.
 //
 
 import Cocoa

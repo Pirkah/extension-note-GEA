@@ -1,9 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "Calculateur de Notes GEA",
-  "version": "1.0",
-  "description": "Calcule la moyenne pondérée directement sur le bulletin de l'ENT.",
-  "permissions": ["activeTab", "scripting"],
+  "name": "Simulateur GEA — Signatures Unilim",
+  "version": "2.0",
+  "description": "Simulateur de notes et calcul d'objectifs intégré directement au bulletin Signatures Unilim (BUT GEA).",
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": ["activeTab"],
   "action": {
     "default_popup": "popup.html"
   },
@@ -12,7 +15,8 @@
       "matches": [
         "https://signatures.unilim.fr/*"
       ],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "run_at": "document_end"
     }
   ]
 }
